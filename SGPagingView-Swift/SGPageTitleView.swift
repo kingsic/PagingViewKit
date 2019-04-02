@@ -83,12 +83,6 @@ class SGPageTitleView: UIView {
     private lazy var indicator: UIView = {
         let indicator = UIView()
         indicator.backgroundColor = configure.indicatorColor
-        // 圆角处理
-        if configure.indicatorCornerRadius > 0.5 * indicator.frame.size.height {
-            indicator.layer.cornerRadius = 0.5 * indicator.frame.size.height
-        } else {
-            indicator.layer.cornerRadius = configure.indicatorCornerRadius
-        }
         if configure.indicatorStyle == .Cover {
             let tempSize = self.P_size(string: btnMArr[0].currentTitle!, font: self.configure.titleFont)
             let tempIndicatorHeight = tempSize.height
@@ -110,6 +104,12 @@ class SGPageTitleView: UIView {
             let indicatorHeight = configure.indicatorHeight
             indicator.frame.size.height = indicatorHeight
             indicator.frame.origin.y = self.frame.size.height - indicatorHeight - configure.indicatorToBottomDistance
+        }
+        // 圆角处理
+        if configure.indicatorCornerRadius > 0.5 * indicator.frame.size.height {
+            indicator.layer.cornerRadius = 0.5 * indicator.frame.size.height
+        } else {
+            indicator.layer.cornerRadius = configure.indicatorCornerRadius
         }
         return indicator
     }()
