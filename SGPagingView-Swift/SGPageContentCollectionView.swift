@@ -66,7 +66,7 @@ class SGPageContentCollectionView: UIView {
     private var childVCs: [UIViewController] = []
     private var startOffsetX: CGFloat = 0.0
     private var previousCVCIndex: Int = -1
-    private var scroll: Bool?
+    private var scroll: Bool? = false
     
     private lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
